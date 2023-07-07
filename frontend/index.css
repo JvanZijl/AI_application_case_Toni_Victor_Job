@@ -2,10 +2,26 @@
     background-color: blueviolet;
 }
 
+.schedule-row {
+    height: 50px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+.employee-scheduled {
+    background-color: green;
+}
+.employee-name {
+
+    font-size: smaller;
+}
 #kpi {
     background-color: brown;
 }
 
+#schedule-title {
+    text-align: center;
+}
 #barplot {
     background-color: azure;
 }

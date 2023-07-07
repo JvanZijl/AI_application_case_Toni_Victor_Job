@@ -39,7 +39,7 @@ function createChart(model_prediction, work_load) {
 async function onClick() {
     // Send GET request
     // Send GET request
-    var response = await fetch('http://10.21.0.79:8085/call-demand/20/', {
+  var response = await fetch('http://localhost:8085/call-demand/20/', {
         method: 'GET',
         headers: {
             'Accept': 'application/json'

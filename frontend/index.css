@@ -2,6 +2,9 @@
     background-color: blueviolet;
 }
 
+.schedule-disabled {
+    background-color: gray;
+}
 .schedule-row {
     height: 50px;
     margin-top: 2px;

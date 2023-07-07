@@ -73,6 +73,59 @@ async function buildEmployeeSchedule() {
 
 }
 
+onUnavailableClick = () => {
+
+}
+
+async function updateAvailablity() {
+    var response = await fetch('http://localhost:8085/employees/', {
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json'
+        },
+    });
+    // Check if request was successful
+    if (response.ok) {
+        var employees = await response.json();
+
+
+        for (employee of employees) {
+            // Creates array with 1 if available and 0 if not
+            let from = Number(employee["availability"]["fri"]["from"])
+            let until = Number(employee["availability"]["fri"]["until"])
+            let employee_name = employee["name"]
+            let availability_array = new Array(24).fill(0)
+            // Hardcoded to only handle pm values
+
+            for (let i = from; i <= until; i++) {
+                availability_array[i] = 1
+            }
+            let availability_array_pm = availability_array.slice(-12)
+
+
+            // Loops over each column button of the employee and disables that button
+            for (let i = 0; i < availability_array_pm.length; i++) {
+                // Find row by employee name and column index
+                let available = availability_array_pm[i]
+                let button_id = employee_name + i
+                let button_element = document.getElementById(button_id)
+                if (available === 0) {
+                    button_element.classList.add("disable")
+                    button_element.classList.add("schedule-disabled")
+                    button_element.innerText = ("U")
+                    button_element.dataset.state = "unavailable"
+                    button_element.onclick = function () { console.log("disabled") }
+                }
+
+
+
+            }
+
+
+        }
+    }
+}
+
 function onScheduleClick(e) {
     let button_id = e.srcElement.id
     let element = document.getElementById(button_id)
@@ -82,7 +135,7 @@ function onScheduleClick(e) {
 
     // Changes state of button and adds capacity to list
     if (element.dataset.state === 'available') {
-        element.innerText = 'B'
+        element.innerText = 'S'
         capacity[col] = capacity[col] + cap
         element.dataset.state = 'scheduled'
     } else if (element.dataset.state === 'scheduled') {
@@ -90,15 +143,11 @@ function onScheduleClick(e) {
         capacity[col] = capacity[col] - cap
         element.dataset.state = 'available'
     }
-
-
-    // Adds employee capacity to list
-    console.log(e)
-    console.log(element.dataset.state)
     console.log(capacity)
 }
 
 buildEmployeeSchedule()
+updateAvailablity()
 let capacity = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
 

@@ -88,7 +88,6 @@ async function updateAvailablity() {
     if (response.ok) {
         var employees = await response.json();
 
-
         for (employee of employees) {
             // Creates array with 1 if available and 0 if not
             let from = Number(employee["availability"]["fri"]["from"])
@@ -101,7 +100,6 @@ async function updateAvailablity() {
                 availability_array[i] = 1
             }
             let availability_array_pm = availability_array.slice(-12)
-
 
             // Loops over each column button of the employee and disables that button
             for (let i = 0; i < availability_array_pm.length; i++) {
@@ -116,12 +114,7 @@ async function updateAvailablity() {
                     button_element.dataset.state = "unavailable"
                     button_element.onclick = function () { console.log("disabled") }
                 }
-
-
-
             }
-
-
         }
     }
 }
@@ -149,5 +142,3 @@ function onScheduleClick(e) {
 buildEmployeeSchedule()
 updateAvailablity()
 let capacity = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-
-

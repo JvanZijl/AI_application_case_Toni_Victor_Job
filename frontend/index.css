@@ -11,6 +11,11 @@
 .employee-scheduled {
     background-color: green;
 }
+.employee-handling-time {
+    text-align: right;
+    justify-content: center;
+    align-items: center;
+}
 .employee-name {
 
     font-size: smaller;
@@ -20,7 +25,7 @@
 }
 
 #schedule-title {
-    text-align: center;
+    align-items: center;
 }
 #barplot {
     background-color: azure;

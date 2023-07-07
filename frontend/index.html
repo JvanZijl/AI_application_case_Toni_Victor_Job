@@ -9,20 +9,30 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="./index.css">
     <script src="./index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        #chartContainer {
+          height: 50%;
+        }
+        #tableContainer {
+          height: 50%;
+          overflow: auto;
+        }
+      </style>
 </head>
 <body>
     <div class = 'container'>
         <div id = 'navbar' class = 'row'>
             <p>navbar with X buttons</p>
         </div>
-        <div id = 'visualisation-container' class = 'row'>
+        <div id = 'visualisation-container' class = 'row' style="height: 400px;">
             <div id = 'kpi' class = 'col-2'>
                 <p>empty space for now, maybe kpis here?</p>
             </div>
             <div id = 'barplot' class = 'col-10'>
                 <p>barplot showing capacity and forecast</p>
+                <canvas id="myChart"></canvas>
             </div>
-
         </div>
         <div id = margin-containter class = 'row'>
             <div id = 'margin-text' class = 'col-2'>
@@ -42,5 +52,6 @@
             </div>
         </div>
     </div>
+<script src="render-chart.js"></script>
 </body>
 </html>

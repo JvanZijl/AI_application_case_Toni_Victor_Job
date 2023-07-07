@@ -1,0 +1,10 @@
+#!/bin/sh
+'''exec' "/Users/seviclun/Library/CloudStorage/OneDrive-Novamedia/Dokument/MIcompany bootcamp/webdev/AI_application_case_Toni_Victor_Job/Case - Backend API/env/bin/python" "$0" "$@"
+' '''
+# -*- coding: utf-8 -*-
+import re
+import sys
+from pip._internal.cli.main import main
+if __name__ == '__main__':
+    sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])
+    sys.exit(main())

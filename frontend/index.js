@@ -30,10 +30,10 @@ async function buildEmployeeSchedule() {
             let new_element = `
             <div class = 'row schedule-row'>
                 <div class = 'col employee-name'>
-                    <p>${employee["name"]}</p>
+                    ${employee["name"]}
                 </div>
                 <div class = 'col employee-handling-time'>
-                    <p>${employee["avg_handling_time"]}</p>
+                    ${employee["avg_handling_time"]}
                 </div>
             </div>
             `

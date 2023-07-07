@@ -53,7 +53,7 @@ async function buildEmployeeSchedule() {
         for (var employee of employees) {
             let time_cols = ''
             for (var i = 0; i < nr_cols; i++) {
-                col = '<button ' + 'data-col="' + i + '" ' + 'data-employee="' + employee["name"] + '"' + ' type="button" class="btn btn-block btn-primary schedule-button mt-0" data-toggle="button" onclick="doSomething(event)" aria-pressed="false" autocomplete="off">1</button>'
+                col = '<button ' + 'id = "' + employee["name"] + i + '" ' + 'data-state="' + 0 + '" ' + 'data-col="' + i + '" ' + 'data-employee="' + employee["name"] + '"' + ' type="button" class="btn btn-block btn-primary schedule-button mt-0" data-toggle="button" onclick="onScheduleClick(event)" aria-pressed="false" autocomplete="off">A</button>'
                 time_cols = time_cols + col
             }
 
@@ -72,8 +72,18 @@ async function buildEmployeeSchedule() {
 
 
 }
+
+function onScheduleClick(e) {
+    let button_id = e.srcElement.id
+    let element = document.getElementById(button_id)
+    element.classList.toggle("employee-scheduled")
+
+    if (element.innerText === 'A') {
+        element.innerText = 'B'
+    } else {
+        element.innerText = 'A'
+    }
+}
+
 buildEmployeeSchedule()
 
-function doSomething(e) {
-    console.log(e.srcElement.dataset.employee)
-}

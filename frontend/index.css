@@ -1,9 +1,8 @@
-#navbar {
-    background-color: blueviolet;
+.container {
+    background-color: #f9f9f9;
 }
-
 .schedule-disabled {
-    background-color: gray;
+    background-color: #cccccc;
 }
 .schedule-row {
     height: 50px;
@@ -12,7 +11,7 @@
 }
 
 .employee-scheduled {
-    background-color: green;
+    background-color: #008140;
 }
 .employee-handling-time {
     text-align: right;
@@ -23,29 +22,12 @@
 
     font-size: smaller;
 }
-#kpi {
-    background-color: brown;
-}
 
 #schedule-title {
     align-items: center;
 }
-#barplot {
-    background-color: azure;
-}
 
-#margin-text {
-    background-color: firebrick;
-}
-
-#margin-numbers {
-    background-color: plum;
-}
-
-#employees {
-    background-color: lightgray;
-}
-
-#schedule {
-    background-color: mediumpurple;
+img {
+    height: 100%;
+    width: 100%;
 }

@@ -53,7 +53,7 @@ async function buildEmployeeSchedule() {
         for (var employee of employees) {
             let time_cols = ''
             for (var i = 0; i < nr_cols; i++) {
-                col = '<button ' + 'id = "' + employee["name"] + i + '" ' + 'data-state="' + 0 + '" ' + 'data-col="' + i + '" ' + 'data-employee="' + employee["name"] + '"' + ' type="button" class="btn btn-block btn-primary schedule-button mt-0" data-toggle="button" onclick="onScheduleClick(event)" aria-pressed="false" autocomplete="off">A</button>'
+                col = '<button ' + 'id = "' + employee["name"] + i + '" ' + 'data-state="available" ' + 'data-col="' + i + '" ' + 'data-employee="' + employee["name"] + '" ' + 'data-capacity ="' + employee["avg_handling_time"] + '" ' + ' type="button" class="btn btn-block btn-primary schedule-button mt-0" data-toggle="button" onclick="onScheduleClick(event)" aria-pressed="false" autocomplete="off">A</button>'
                 time_cols = time_cols + col
             }
 
@@ -76,14 +76,29 @@ async function buildEmployeeSchedule() {
 function onScheduleClick(e) {
     let button_id = e.srcElement.id
     let element = document.getElementById(button_id)
+    let col = Number(element.dataset.col)
+    let cap = Number(element.dataset.capacity)
     element.classList.toggle("employee-scheduled")
 
-    if (element.innerText === 'A') {
+    // Changes state of button and adds capacity to list
+    if (element.dataset.state === 'available') {
         element.innerText = 'B'
-    } else {
+        capacity[col] = capacity[col] + cap
+        element.dataset.state = 'scheduled'
+    } else if (element.dataset.state === 'scheduled') {
         element.innerText = 'A'
+        capacity[col] = capacity[col] - cap
+        element.dataset.state = 'available'
     }
+
+
+    // Adds employee capacity to list
+    console.log(e)
+    console.log(element.dataset.state)
+    console.log(capacity)
 }
 
 buildEmployeeSchedule()
+let capacity = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
 

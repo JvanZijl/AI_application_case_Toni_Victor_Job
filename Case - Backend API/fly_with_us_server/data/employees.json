@@ -1,0 +1,527 @@
+[
+    {
+        "id": 0,
+        "name": "Anderson, Albert",
+        "avg_handling_time": 5,
+        "availability": {
+            "mon": {
+                "from": 23,
+                "until": 7
+            },
+            "tue": {
+                "from": 22,
+                "until": 6
+            },
+            "wed": {
+                "from": 0,
+                "until": 0
+            },
+            "thu": {
+                "from": 0,
+                "until": 0
+            },
+            "fri": {
+                "from": 22,
+                "until": 6
+            },
+            "sat": {
+                "from": 22,
+                "until": 7
+            },
+            "sun": {
+                "from": 22,
+                "until": 7
+            }
+        }
+    },
+    {
+        "id": 1,
+        "name": "Thomas, Ted",
+        "avg_handling_time": 8,
+        "availability": {
+            "mon": {
+                "from": 22,
+                "until": 6
+            },
+            "tue": {
+                "from": 22,
+                "until": 6
+            },
+            "wed": {
+                "from": 22,
+                "until": 6
+            },
+            "thu": {
+                "from": 22,
+                "until": 7
+            },
+            "fri": {
+                "from": 22,
+                "until": 6
+            },
+            "sat": {
+                "from": 0,
+                "until": 0
+            },
+            "sun": {
+                "from": 0,
+                "until": 0
+            }
+        }
+    },
+    {
+        "id": 2,
+        "name": "Williamson, Wilma",
+        "avg_handling_time": 6,
+        "availability": {
+            "mon": {
+                "from": 22,
+                "until": 7
+            },
+            "tue": {
+                "from": 0,
+                "until": 0
+            },
+            "wed": {
+                "from": 0,
+                "until": 0
+            },
+            "thu": {
+                "from": 22,
+                "until": 6
+            },
+            "fri": {
+                "from": 23,
+                "until": 6
+            },
+            "sat": {
+                "from": 23,
+                "until": 6
+            },
+            "sun": {
+                "from": 22,
+                "until": 7
+            }
+        }
+    },
+    {
+        "id": 3,
+        "name": "Pulaski, Peter",
+        "avg_handling_time": 6,
+        "availability": {
+            "mon": {
+                "from": 23,
+                "until": 7
+            },
+            "tue": {
+                "from": 0,
+                "until": 0
+            },
+            "wed": {
+                "from": 0,
+                "until": 0
+            },
+            "thu": {
+                "from": 22,
+                "until": 6
+            },
+            "fri": {
+                "from": 22,
+                "until": 6
+            },
+            "sat": {
+                "from": 23,
+                "until": 6
+            },
+            "sun": {
+                "from": 22,
+                "until": 6
+            }
+        }
+    },
+    {
+        "id": 4,
+        "name": "Myers, Matt",
+        "avg_handling_time": 6,
+        "availability": {
+            "mon": {
+                "from": 0,
+                "until": 0
+            },
+            "tue": {
+                "from": 0,
+                "until": 0
+            },
+            "wed": {
+                "from": 22,
+                "until": 6
+            },
+            "thu": {
+                "from": 22,
+                "until": 6
+            },
+            "fri": {
+                "from": 23,
+                "until": 7
+            },
+            "sat": {
+                "from": 23,
+                "until": 7
+            },
+            "sun": {
+                "from": 22,
+                "until": 7
+            }
+        }
+    },
+    {
+        "id": 5,
+        "name": "Harrison, Harold",
+        "avg_handling_time": 6,
+        "availability": {
+            "mon": {
+                "from": 0,
+                "until": 0
+            },
+            "tue": {
+                "from": 0,
+                "until": 0
+            },
+            "wed": {
+                "from": 15,
+                "until": 23
+            },
+            "thu": {
+                "from": 15,
+                "until": 23
+            },
+            "fri": {
+                "from": 15,
+                "until": 22
+            },
+            "sat": {
+                "from": 14,
+                "until": 23
+            },
+            "sun": {
+                "from": 15,
+                "until": 23
+            }
+        }
+    },
+    {
+        "id": 6,
+        "name": "Gee, Garry",
+        "avg_handling_time": 4,
+        "availability": {
+            "mon": {
+                "from": 15,
+                "until": 22
+            },
+            "tue": {
+                "from": 15,
+                "until": 22
+            },
+            "wed": {
+                "from": 15,
+                "until": 23
+            },
+            "thu": {
+                "from": 15,
+                "until": 23
+            },
+            "fri": {
+                "from": 14,
+                "until": 22
+            },
+            "sat": {
+                "from": 0,
+                "until": 0
+            },
+            "sun": {
+                "from": 0,
+                "until": 0
+            }
+        }
+    },
+    {
+        "id": 7,
+        "name": "Edgerton, Ethan",
+        "avg_handling_time": 5,
+        "availability": {
+            "mon": {
+                "from": 0,
+                "until": 0
+            },
+            "tue": {
+                "from": 0,
+                "until": 0
+            },
+            "wed": {
+                "from": 15,
+                "until": 23
+            },
+            "thu": {
+                "from": 15,
+                "until": 22
+            },
+            "fri": {
+                "from": 15,
+                "until": 22
+            },
+            "sat": {
+                "from": 14,
+                "until": 23
+            },
+            "sun": {
+                "from": 14,
+                "until": 22
+            }
+        }
+    },
+    {
+        "id": 8,
+        "name": "Nichols, Nana",
+        "avg_handling_time": 7,
+        "availability": {
+            "mon": {
+                "from": 14,
+                "until": 22
+            },
+            "tue": {
+                "from": 0,
+                "until": 0
+            },
+            "wed": {
+                "from": 0,
+                "until": 0
+            },
+            "thu": {
+                "from": 14,
+                "until": 22
+            },
+            "fri": {
+                "from": 14,
+                "until": 23
+            },
+            "sat": {
+                "from": 14,
+                "until": 22
+            },
+            "sun": {
+                "from": 15,
+                "until": 23
+            }
+        }
+    },
+    {
+        "id": 9,
+        "name": "Uvaldon, Ursala",
+        "avg_handling_time": 6,
+        "availability": {
+            "mon": {
+                "from": 14,
+                "until": 22
+            },
+            "tue": {
+                "from": 14,
+                "until": 23
+            },
+            "wed": {
+                "from": 0,
+                "until": 0
+            },
+            "thu": {
+                "from": 0,
+                "until": 0
+            },
+            "fri": {
+                "from": 15,
+                "until": 23
+            },
+            "sat": {
+                "from": 15,
+                "until": 22
+            },
+            "sun": {
+                "from": 15,
+                "until": 22
+            }
+        }
+    },
+    {
+        "id": 10,
+        "name": "Zwilowski, Zane",
+        "avg_handling_time": 7,
+        "availability": {
+            "mon": {
+                "from": 6,
+                "until": 14
+            },
+            "tue": {
+                "from": 0,
+                "until": 0
+            },
+            "wed": {
+                "from": 0,
+                "until": 0
+            },
+            "thu": {
+                "from": 6,
+                "until": 15
+            },
+            "fri": {
+                "from": 7,
+                "until": 14
+            },
+            "sat": {
+                "from": 7,
+                "until": 14
+            },
+            "sun": {
+                "from": 6,
+                "until": 15
+            }
+        }
+    },
+    {
+        "id": 11,
+        "name": "Abacus, Aaron",
+        "avg_handling_time": 8,
+        "availability": {
+            "mon": {
+                "from": 6,
+                "until": 14
+            },
+            "tue": {
+                "from": 6,
+                "until": 14
+            },
+            "wed": {
+                "from": 6,
+                "until": 14
+            },
+            "thu": {
+                "from": 6,
+                "until": 14
+            },
+            "fri": {
+                "from": 7,
+                "until": 14
+            },
+            "sat": {
+                "from": 0,
+                "until": 0
+            },
+            "sun": {
+                "from": 0,
+                "until": 0
+            }
+        }
+    },
+    {
+        "id": 12,
+        "name": "Sanders, Sammi",
+        "avg_handling_time": 6,
+        "availability": {
+            "mon": {
+                "from": 6,
+                "until": 14
+            },
+            "tue": {
+                "from": 6,
+                "until": 14
+            },
+            "wed": {
+                "from": 0,
+                "until": 0
+            },
+            "thu": {
+                "from": 0,
+                "until": 0
+            },
+            "fri": {
+                "from": 7,
+                "until": 14
+            },
+            "sat": {
+                "from": 6,
+                "until": 14
+            },
+            "sun": {
+                "from": 7,
+                "until": 15
+            }
+        }
+    },
+    {
+        "id": 13,
+        "name": "Rank, Richelle",
+        "avg_handling_time": 8,
+        "availability": {
+            "mon": {
+                "from": 6,
+                "until": 14
+            },
+            "tue": {
+                "from": 6,
+                "until": 15
+            },
+            "wed": {
+                "from": 0,
+                "until": 0
+            },
+            "thu": {
+                "from": 0,
+                "until": 0
+            },
+            "fri": {
+                "from": 6,
+                "until": 14
+            },
+            "sat": {
+                "from": 6,
+                "until": 15
+            },
+            "sun": {
+                "from": 7,
+                "until": 15
+            }
+        }
+    },
+    {
+        "id": 14,
+        "name": "Kippers, Kat",
+        "avg_handling_time": 7,
+        "availability": {
+            "mon": {
+                "from": 0,
+                "until": 0
+            },
+            "tue": {
+                "from": 0,
+                "until": 0
+            },
+            "wed": {
+                "from": 7,
+                "until": 15
+            },
+            "thu": {
+                "from": 6,
+                "until": 15
+            },
+            "fri": {
+                "from": 6,
+                "until": 15
+            },
+            "sat": {
+                "from": 7,
+                "until": 14
+            },
+            "sun": {
+                "from": 7,
+                "until": 14
+            }
+        }
+    }
+]

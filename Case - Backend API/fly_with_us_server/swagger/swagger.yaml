@@ -1,0 +1,426 @@
+openapi: 3.0.0
+info:
+  title: Fly with US
+  description: |
+    Fly with US analytics and employee administration -  API definition.
+  contact:
+    email: dummy@flywithus.org
+  version: 1.0.0
+servers:
+- url: /
+tags:
+- name: employees
+  description: Employee details
+- name: call-demand
+  description: Expected number of calls per hour
+paths:
+  /employees/:
+    get:
+      tags:
+      - employees
+      summary: Returns a list of employees with their details
+      description: Provides list of all employees, containing their id, name, availability
+        and average handling times.
+      operationId: employees_get
+      responses:
+        "200":
+          description: A JSON array of user objects
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Employee'
+                x-content-type: application/json
+      x-openapi-router-controller: fly_with_us_server.controllers.employees_controller
+  /call-demand/{week_number}/:
+    get:
+      tags:
+      - call-demand
+      summary: Returns the predicted number of calls for the provided weeknumber
+      description: Provides an object with as items the days of the week, and as their
+        value an array of predicted call demand per hour.
+      operationId: call_demand_week_number_get
+      parameters:
+      - name: week_number
+        in: path
+        description: The week number for which the call demand prediction should be
+          returned
+        required: true
+        style: simple
+        explode: false
+        schema:
+          maximum: 53
+          minimum: 1
+          type: integer
+        example: 2
+      responses:
+        "200":
+          description: A JSON object of the call demand per hour for each day of the
+            week.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CallDemand'
+      x-openapi-router-controller: fly_with_us_server.controllers.call_demand_controller
+  /call-demand/{week_number}/{day}/{hour}/:
+    post:
+      tags:
+      - call-demand
+      summary: Overwrite the model predicted call demand.
+      description: Manually change the predicted call-demand for a specific hour.
+      operationId: call_demand_week_number_day_hour_post
+      parameters:
+      - name: week_number
+        in: path
+        description: The week number for which the call demand prediction should be
+          overwritten.
+        required: true
+        style: simple
+        explode: false
+        schema:
+          maximum: 53
+          minimum: 1
+          type: integer
+        example: 2
+      - name: day
+        in: path
+        description: The day of the week for which the call demand predicition should
+          be overwritten.
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          enum:
+          - mon
+          - tue
+          - wed
+          - thu
+          - fri
+          - sat
+          - sun
+        example: mon
+      - name: hour
+        in: path
+        description: The hour of the day for which the call demand prediction should
+          be overwritten.
+        required: true
+        style: simple
+        explode: false
+        schema:
+          maximum: 23
+          minimum: 0
+          type: integer
+        example: 10
+      requestBody:
+        description: Overwrite call demand value & reason.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CallDemandOverwrite'
+        required: true
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: Invalid parameters supplied
+      x-openapi-router-controller: fly_with_us_server.controllers.call_demand_controller
+components:
+  schemas:
+    Employee:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        avg_handling_time:
+          type: integer
+        availability:
+          $ref: '#/components/schemas/Employee_availability'
+      example:
+        id: 10
+        name: John Doe
+        avg_handling_time: 6
+        availability:
+          mon:
+            from: 6
+            until: 19
+          tue:
+            from: 6
+            until: 19
+          wed:
+            from: 6
+            until: 19
+          thu:
+            from: 6
+            until: 19
+          fri:
+            from: 6
+            until: 19
+          sat:
+            from: 6
+            until: 19
+          sun:
+            from: 6
+            until: 19
+    CallDemand:
+      type: object
+      properties:
+        mon:
+          maxItems: 24
+          minItems: 24
+          type: array
+          items:
+            type: integer
+        tue:
+          maxItems: 24
+          minItems: 24
+          type: array
+          items:
+            type: integer
+        wed:
+          maxItems: 24
+          minItems: 24
+          type: array
+          items:
+            type: integer
+        thu:
+          maxItems: 24
+          minItems: 24
+          type: array
+          items:
+            type: integer
+        fri:
+          maxItems: 24
+          minItems: 24
+          type: array
+          items:
+            type: integer
+        sat:
+          maxItems: 24
+          minItems: 24
+          type: array
+          items:
+            type: integer
+        sun:
+          maxItems: 24
+          minItems: 24
+          type: array
+          items:
+            type: integer
+      example:
+        mon:
+        - 1
+        - 3
+        - 3
+        - 4
+        - 1
+        - 2
+        - 4
+        - 6
+        - 10
+        - 10
+        - 13
+        - 11
+        - 12
+        - 10
+        - 10
+        - 11
+        - 8
+        - 6
+        - 5
+        - 3
+        - 4
+        - 1
+        - 2
+        - 3
+        tue:
+        - 1
+        - 3
+        - 1
+        - 3
+        - 1
+        - 4
+        - 4
+        - 7
+        - 10
+        - 12
+        - 11
+        - 12
+        - 11
+        - 13
+        - 11
+        - 9
+        - 10
+        - 7
+        - 3
+        - 5
+        - 4
+        - 3
+        - 3
+        - 0
+        wed:
+        - 2
+        - 0
+        - 0
+        - 1
+        - 4
+        - 4
+        - 5
+        - 6
+        - 10
+        - 12
+        - 11
+        - 14
+        - 11
+        - 11
+        - 10
+        - 8
+        - 9
+        - 7
+        - 5
+        - 2
+        - 1
+        - 0
+        - 0
+        - 1
+        thu:
+        - 1
+        - 2
+        - 1
+        - 4
+        - 3
+        - 5
+        - 6
+        - 5
+        - 9
+        - 10
+        - 10
+        - 13
+        - 13
+        - 10
+        - 11
+        - 9
+        - 10
+        - 7
+        - 6
+        - 2
+        - 4
+        - 3
+        - 2
+        - 1
+        fri:
+        - 1
+        - 0
+        - 1
+        - 2
+        - 1
+        - 3
+        - 6
+        - 8
+        - 8
+        - 12
+        - 10
+        - 12
+        - 11
+        - 11
+        - 11
+        - 8
+        - 7
+        - 7
+        - 7
+        - 5
+        - 4
+        - 4
+        - 1
+        - 1
+        sat:
+        - 1
+        - 3
+        - 3
+        - 4
+        - 3
+        - 5
+        - 5
+        - 6
+        - 9
+        - 10
+        - 12
+        - 11
+        - 11
+        - 12
+        - 10
+        - 10
+        - 8
+        - 8
+        - 4
+        - 4
+        - 4
+        - 0
+        - 0
+        - 2
+        sun:
+        - 3
+        - 2
+        - 0
+        - 1
+        - 3
+        - 5
+        - 5
+        - 7
+        - 7
+        - 10
+        - 12
+        - 14
+        - 11
+        - 12
+        - 13
+        - 11
+        - 10
+        - 8
+        - 4
+        - 2
+        - 2
+        - 0
+        - 0
+        - 2
+    CallDemandOverwrite:
+      type: object
+      properties:
+        value:
+          type: integer
+          example: 20
+        reason:
+          type: string
+          example: National holiday
+    Employee_availability_mon:
+      type: object
+      properties:
+        from:
+          maximum: 23
+          minimum: 0
+          type: integer
+        to:
+          maximum: 23
+          minimum: 0
+          type: integer
+    Employee_availability:
+      type: object
+      properties:
+        mon:
+          $ref: '#/components/schemas/Employee_availability_mon'
+        tue:
+          $ref: '#/components/schemas/Employee_availability_mon'
+        wed:
+          $ref: '#/components/schemas/Employee_availability_mon'
+        thu:
+          $ref: '#/components/schemas/Employee_availability_mon'
+        fri:
+          $ref: '#/components/schemas/Employee_availability_mon'
+        sat:
+          $ref: '#/components/schemas/Employee_availability_mon'
+        sun:
+          $ref: '#/components/schemas/Employee_availability_mon'
+

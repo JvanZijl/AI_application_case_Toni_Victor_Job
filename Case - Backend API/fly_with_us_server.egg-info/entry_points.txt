@@ -1,0 +1,2 @@
+[console_scripts]
+fly_with_us_server = fly_with_us_server.__main__:main

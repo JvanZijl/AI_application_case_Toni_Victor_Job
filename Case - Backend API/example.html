@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calling API Example</title>
+</head>
+
+<body>
+
+    <button id="button1" onclick="onClick()">Click to send AJAX request</button>
+    <ul id="employee-list">
+
+    </ul>
+
+    <script>
+        async function onClick() {
+            // Send GET request
+            var response = await fetch('http://localhost:8085/employees/', {
+                method: 'GET',
+                headers: {
+                    'Accept': 'application/json'
+                },
+            });
+            // Check if request was successful
+            if (response.ok) {
+                var employees = await response.json();
+                // Clear list
+                document.querySelector('#employee-list').innerHTML = '';
+                // See the response result in the console
+                console.log(employees)
+                // Loop over employees in response json
+                for (var employee of employees) {
+                    // Create new HTML list-item element for current employee
+                    var new_list_element = document.createElement('li')
+                    new_list_element.innerText = 'ID: ' + employee["id"] + ', name: ' + employee["name"];
+                    // Add new list-item element to #employee-list
+                    document.querySelector('#employee-list').appendChild(new_list_element);
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
